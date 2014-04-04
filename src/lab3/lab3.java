@@ -1,23 +1,18 @@
-package lab2;
+package lab3;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
-public class lab2 {
+public class lab3 {
 
     public static void main(String[] args) {
         
         RecordRetriever rr = new RecordRetriever();
         Scanner keyboard = new Scanner(System.in);
-        List<String> record; 
-        
+                
         try {
             System.out.println("Enter a record number");
-            record = rr.getRecord(keyboard.nextLine());
-            for (String s : record) {
-                System.out.println(s);
-            }
+            System.out.println(rr.getCity(keyboard.nextLine()));
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         } catch (IllegalArgumentException iae) {
