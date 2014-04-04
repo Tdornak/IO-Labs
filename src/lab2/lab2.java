@@ -8,7 +8,7 @@ public class lab2 {
 
     public static void main(String[] args) {
         
-        RecordRetriever rr = new RecordRetriever();
+        RecordReader rr = new RecordReader();
         Scanner keyboard = new Scanner(System.in);
         List<String> record; 
         

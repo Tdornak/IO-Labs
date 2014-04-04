@@ -1,4 +1,4 @@
-package lab2;
+package lab3;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,9 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecordRetriever {
+public class RecordReader {
 
     private int recordEnd = 0;
+    
+    //the line number the city is on in each record
+    private final int CITY_NUM = 3;
     
     private final int RECORD_SIZE = 8;
     private final String NO_VALUE_ENTERED = "A value must be entered";
@@ -49,7 +52,15 @@ public class RecordRetriever {
         if (myList.size() < RECORD_SIZE) {
             throw new IllegalArgumentException(MAX_RECORDS);
         }
+        
         return myList;
+        
+    }
+    
+    public String getCity(String recordNo) throws IOException {
+        List<String> record = this.getRecord(recordNo); // this method should perform all the validation needed
+        
+        return record.get(CITY_NUM);
     }
     
     
@@ -65,7 +76,7 @@ public class RecordRetriever {
    
     //Sets the end of the record to "Record_size" after the start of the record
     private void setRecordEnd(int recordNo) {
-        if (recordNo < 0) {
+        if (recordNo < 0) { 
             throw new IllegalArgumentException(GREATER_THAN_ZERO);
         }
         recordEnd = (recordNo * RECORD_SIZE + RECORD_SIZE);  
